@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.head {
+    background: linear-gradient(to right, #00B4D8, #FF6B6B);
+}
+
+.head_con {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;           
+    font-size: 20px;
+}
+
+.icon-img {
+    width: 4rem ;
+    height: auto;
+    object-fit: contain;
+}
+
+h1 {
+    text-align: center;
+    padding: 5px;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+
+.menu ul {
+    list-style-type: none;
+    font-size: 25px;  
+    padding: 0px;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+    width: 325px;
+    transition: transform 1s ease;
+}
+
+.menu a:hover {
+    background-color: #B2A5FF;
+    transition: background-color 1s ease;
+    transition: transform 1s ease;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px purple;
+}
+
+.menu li {
+    float: left;
+}
+
+.welcome {
+    display: inline-block;
+    margin-top: 25px;
+    margin-left: 20px;
+    font-size: 20px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    background: linear-gradient(-45deg, #BCEEFA, #FFCCD5, #CBE7FF, #FFE5E5);
+    background-size: 400% 400%;
+    animation: welcomeGradient 10s linear infinite;
+    box-shadow: 0 4px 20px rgba(255, 182, 193, 0.4), 0 4px 20px rgba(174, 239, 255, 0.4);
+}
+
+@keyframes welcomeGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.content1 {
+    padding: 15px;
+    display: inline-block;
+    background: linear-gradient(to right, #D0D7DE, #EAECEF);
+    margin-top: 40px;
+    margin-left: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 1px 3px grey;
+    transition: transform 1s ease;
+}
+
+.content1:hover {
+    transform: scale(1.05);
+    transition: 1s ease;
+}
+
+.content_room {
+    margin-top: 10px;
+    font-family: 'Anantason' sans-serif;
+    }
+
+.smte {
+    margin-left: 20px;
+    line-height: 2rem;
+    padding-top: 10px;
+    font-family: 'Anantason' sans-serif;
+}
+
+.content2 {
+    padding: 15px;
+    display: inline-block;
+    background: linear-gradient(to right, #D0D7DE, #EAECEF);
+    margin-top: 60px;
+    margin-left: 20px;
+    margin-right: 100px;
+    border-radius: 10px;
+    box-shadow: 0 3px 1px 3px grey;
+    transition: transform 1s ease;
+}
+
+.content2:hover {
+    transform: scale(1.05);
+    transition: 1s ease;
+}
+
+.content_objective { 
+    margin-left: 20px;
+    line-height: 2rem;
+    padding-top: 10px;   
+    font-family: 'Anantason' sans-serif;
+}
+
+/* ซ่อน Tab ทั่วไป */
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+
+/* ซ่อน Tab Member */
+.tab-content-m {
+    display: none;
+}
+.tab-content-m.active {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.popup-title {
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+/* รูปภาพสมาชิก */
+.popup-img img {
+    width: auto;
+    height: autp;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+/* สไตล์กล่องและการซ่อนก่อนเล่นอนิเมชั่น */
+.popup-box {
+    flex: 1;
+    max-width: 350px;
+    padding: 24px;
+    border-radius: 16px;
+    opacity: 0; /* ซ่อนตั้งต้น */
+    /* --- ชุดโค้ดปรับปรุงใหม่ เห็นเฉดสีชัดเจนแน่นอน --- */
+    background: linear-gradient(135deg, #f0f9ff 0%, #fff5f8 100%); /* ไล่เฉดสีฟ้าไปชมพูพาสเทลแบบละมุน */
+    border: 1px solid #e0e0e0; /* คืนค่าเส้นขอบสีเทาอ่อนเพื่อให้เห็นขอบกล่องชัดขึ้น */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04); /* เงาบางๆ ไม่ให้กล่องลอยจนดูหลอกตา */
+}   
+
+/* เล่นอนิเมชั่นเมื่อ parent มี active */
+.tab-content-m.active .popup-box {
+    animation: floatup 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes floatup {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1); 
+    }
+}
+
+/* กำหนดเวลา member */
+.tab-content-m.active .popup-box:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.tab-content-m.active .popup-box:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.tab-content-m.active .popup-box:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.tab-content-m.active .popup-box:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
